@@ -12,8 +12,6 @@ app = FastAPI()
 
 
 
-# Students will need to figure out how to pass these via Kubernetes Env Vars
-
 DB_NAME = os.getenv("POSTGRES_DB", "postgres")
 
 DB_USER = os.getenv("POSTGRES_USER", "postgres")
