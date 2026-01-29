@@ -1,0 +1,35 @@
+name: Deploy Ephemeral Stack
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create kind cluster
+        uses: helm/kind-action@v1.4.0
+
+      - name: Build Docker image
+        run: |
+          docker build -t my-app-image:latest .
+
+      - name: Load image into Kind
+        run: |
+          kind load docker-image my-app-image:latest
+
+      - name: Deploy Helm chart
+        run: |
+          helm install my-release ./my-app
+
+      - name: Wait for pods and check status
+        run: |
+          sleep 40
+          kubectl get pods
+          kubectl logs deployment/my-python-app || echo "Could not get logs yet"

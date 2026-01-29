@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-python-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-python-app
+  template:
+    metadata:
+      labels:
+        app: my-python-app
+    spec:
+      containers:
+        - name: python-app
+          image: my-app-image:latest 
+          ports:
+            - containerPort: 8000
+          
+          env:
+            - name: POSTGRES_HOST
+              value: "postgres-db" 
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
+              value: "password"
+            - name: POSTGRES_DB
+              value: "postgres"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-python-service
+spec:
+  selector:
+    app: my-python-app
+  ports:
+    - protocol: TCP
+      port: 80  
+      targetPort: 8000 
