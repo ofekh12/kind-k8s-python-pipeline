@@ -32,7 +32,7 @@ The GitHub Actions pipeline automates the building, loading, and deployment of t
 
 ### 🚀 Pipeline Status
 
-![Pipeline Success](Screenshot from 2026-01-29 19-42-15.png)
+![Pipeline Success]([Screenshot from 2026-01-29 19-42-15.png](https://github.com/ofekh12/kind-k8s-python-pipeline/blob/main/Screenshot%20from%202026-01-29%2019-42-15.png?raw=true))
 
 *Figure 1: Successful end-to-end deployment and integration test in GitHub Actions.*
 
