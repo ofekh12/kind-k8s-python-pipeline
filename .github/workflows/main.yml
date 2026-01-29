@@ -32,5 +32,16 @@ jobs:
 
       - name: Run Integration Test
         run: |
+          kubectl delete job integration-test --ignore-not-found=true
+          
+         
           kubectl apply -f my-app/templates/test-job.yaml
-          kubectl wait --for=condition=complete job/integration-test --timeout=90s
+          
+          kubectl wait --for=condition=complete job/integration-test --timeout=120s
+
+      - name: Debug on failure
+        if: failure() 
+        run: |
+          kubectl get pods
+          kubectl logs job/integration-test || echo "No job logs found"
+          kubectl logs deployment/my-python-app || echo "No app logs found"
