@@ -29,3 +29,8 @@ jobs:
         run: |
           sleep 40
           kubectl get pods
+
+      - name: Run Integration Test
+        run: |
+          kubectl apply -f my-app/templates/test-job.yaml
+          kubectl wait --for=condition=complete job/integration-test --timeout=90s

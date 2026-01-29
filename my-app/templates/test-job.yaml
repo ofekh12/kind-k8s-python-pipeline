@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: integration-test
+spec:
+  template:
+    spec:
+      containers:
+      - name: curl-test
+        image: curlimages/curl
+        command: ["curl", "-v", "-X", "POST", "http://my-python-service:80/write", "-H", "Content-Type: application/json", "-d", '{"message": "Test successful!"}']
+      restartPolicy: Never
+  backoffLimit: 4
