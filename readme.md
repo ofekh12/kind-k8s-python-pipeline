@@ -29,10 +29,9 @@ This project demonstrates an "End-to-End" DevOps workflow, creating a temporary 
 The GitHub Actions pipeline automates the building, loading, and deployment of the stack.
 
 
-
 ### 🚀 Pipeline Status
 
-![Pipeline Success](Screenshot from 2026-01-29 19-42-15.png](https://github.com/ofekh12/kind-k8s-python-pipeline/blob/main/Screenshot%20from%202026-01-29%2019-42-15.png?raw=true)
+<img width="1117" height="886" alt="Screenshot from 2026-01-29 19-42-15" src="https://github.com/user-attachments/assets/2aac8966-119f-4fbd-a237-a0cd8bc96951" />
 
 *Figure 1: Successful end-to-end deployment and integration test in GitHub Actions.*
 
