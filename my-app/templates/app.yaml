@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: python-app
-          image: ofekh12/my-app-image:latest 
+          image: ofekh/my-app-image:latest 
           imagePullPolicy: IfNotPresent
           imagePullSecrets:
           - regcred
