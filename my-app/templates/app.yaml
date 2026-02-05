@@ -14,8 +14,11 @@ spec:
     spec:
       containers:
         - name: python-app
-          image: my-app-image:latest 
+          image: ofekh12/my-app-image:latest 
           imagePullPolicy: IfNotPresent
+          imagePullSecrets:
+          - regcred
+        
           ports:
             - containerPort: 8000
           
